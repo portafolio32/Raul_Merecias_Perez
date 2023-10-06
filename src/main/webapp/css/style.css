@@ -1,0 +1,99 @@
+.panel-control {
+  position:absolute;
+  opacity:0;
+}
+.tab-group label {
+  display:inline-block;
+  padding: 10px 30px;
+  border:1px solid #ccc;
+  border-bottom:none;
+  background-color: #ccc;
+  bottom:-1px;
+  position:relative;
+}
+.content-group {
+  border:1px solid #ccc;
+  padding: 20px;
+}
+.content{display:none;}
+/* .content1{display:block;} */
+/* .tab-group .active {
+  position:relative;
+  background-color: #fff;
+} */
+
+#radio1:checked ~ .tab-group [for="radio1"],
+#radio2:checked ~ .tab-group [for="radio2"],
+#radio3:checked ~ .tab-group [for="radio3"]{background-color: #fff;}
+
+/* #radio2:checked~ .content-group .content1{display:none}
+#radio3:checked~ .content-group .content1{display:none} */
+
+#radio1:checked ~ .content-group .content1,
+#radio2:checked ~ .content-group .content2,
+#radio3:checked ~ .content-group .content3 {display:block}
+
+
+
+
+/* 包含箭頭旋轉效果 */
+
+/*  i{
+  transition: all 0.5s;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+ */
+/* .panel-control {
+  position:absolute;
+  opacity:0;
+}
+.tab-group label {
+  display:inline-block;
+  padding: 10px 30px;
+  border:1px solid #ccc;
+  border-bottom:none;
+  background-color: #ccc;
+  bottom:-1px;
+  position:relative;
+}
+.content-group {
+  border:1px solid #ccc;
+}
+.content{
+  display:none;
+  padding: 0;
+} */
+
+
+/* #radio1:checked ~ .tab-group [for="radio1"],
+#radio2:checked ~ .tab-group [for="radio2"],
+#radio3:checked ~ .tab-group [for="radio3"]{background-color: #fff;}
+
+#radio1:checked ~ .tab-group [for="radio1"] > i,
+#radio2:checked ~ .tab-group [for="radio2"] > i,
+#radio3:checked ~ .tab-group [for="radio3"] > i,
+{
+  transform:rotate(-180deg);
+  transition: all 0.5s;
+} */
+
+/* #radio1:not(:checked) ~ .tab-group [for="radio1"] > i,
+#radio2:not(:checked) ~ .tab-group [for="radio2"] > i,
+#radio3:not(:checked) ~ .tab-group [for="radio3"] > i
+{
+  transform:rotate(180deg);
+  transition: all 0.5s;
+} */
+
+
+/* #radio1:checked ~ .content-group .content1,
+#radio2:checked ~ .content-group .content2,
+#radio3:checked ~ .content-group .content3 
+{
+  display:block;
+  padding: 20px;
+}
+ */
