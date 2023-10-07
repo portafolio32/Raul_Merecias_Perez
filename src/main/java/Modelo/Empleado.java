@@ -2,16 +2,35 @@ package Modelo;
 
 public class Empleado {
 	int id;
-    String idEmpleado;
+	int hrExtra;
+	String idEmpleado;
     String Nombre;
     String Rol;
     String Mes;
     float Sueldo;
-    float Horas;
+    int Horas;
     int Entregas;
     float Bonos;
     float Reten;
     float Vales;
+	int pagoxCarga;
+	
+	  public int getHrExtra() {
+			return hrExtra;
+		}
+
+		public void setHrExtra(int hrExtra) {
+			this.hrExtra = hrExtra;
+		}
+
+    public int getPagoxCarga() {
+		return pagoxCarga;
+	}
+
+	public void setPagoxCarga(int pagoxCarga) {
+		this.pagoxCarga = pagoxCarga;
+	}
+
     public String getMes() {
 		return Mes;
 	}
@@ -32,7 +51,7 @@ public class Empleado {
 		return Horas;
 	}
 
-	public void setHoras(float horas) {
+	public void setHoras(int horas) {
 		Horas = horas;
 	}
 

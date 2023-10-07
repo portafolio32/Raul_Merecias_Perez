@@ -37,10 +37,14 @@ public class Captura extends HttpServlet {
 		String acceso="";
 		acceso=add;
 	
+	int hr=Integer.parseInt(request.getParameter("txtHR"));
    int carga=Integer.parseInt(request.getParameter("txtCarga"));
    int id=Integer.parseInt(request.getParameter("txtClave"));
+   String rol=request.getParameter("txtRol");
 	String mes=request.getParameter("select");
-    
+
+	persona.setHrExtra(hr);
+    persona.setRol(rol);
 	persona.setEntregas(carga);
 	persona.setId(id);
 	persona.setMes(mes);

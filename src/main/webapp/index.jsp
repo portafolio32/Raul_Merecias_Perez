@@ -83,17 +83,17 @@
             <div  class="form-group form-check">
 	<div class="form-check">
   <label class="form-check-label">
-    <input type="checkbox" class="form-check-input"  name="txtRol" value="Chofer">Chofer
+    <input type="checkbox" class="form-check-input"  name="txtRol" value="3">Chofer
   </label>
 </div>
 <div class="form-check">
   <label class="form-check-label">
-    <input type="checkbox" class="form-check-input"  name="txtRol" value="Cargador">Cargador
+    <input type="checkbox" class="form-check-input"  name="txtRol" value="2">Cargador
   </label>
 </div>
 <div class="form-check">
   <label class="form-check-label">
-    <input type="checkbox" class="form-check-input"  name="txtRol" value="Auxiliar" >Auxiliar
+    <input type="checkbox" class="form-check-input"  name="txtRol" value="1" >Auxiliar
   </label>
 </div>
             <button type="submit"  >Guardar</button>
@@ -122,8 +122,9 @@
          <th>MES</th>
         <th>SUELDO</th>
         <th>HORAS</th>
-         <th>ENTREGAS</th>
-        <th>BONOS</th>
+         <th>PAGO POR BONOS</th>
+                  <th>ENTREGAS</th>
+        <th>PAGO POR ENTREGA</th>
         <th>RETEN</th>
         <th>VALES</th>
                 <th>Accion</th>
@@ -148,8 +149,9 @@
                           <td><%=persona.getMes() %></td>
                         <td><%=persona.getSueldo() %></td>
                        <td><%=persona.getHoras() %></td>
+                           <td><%=persona.getBonos() %></td>
                           <td><%=persona.getEntregas() %></td>
-                        <td><%=persona.getBonos() %></td>
+                        <td><%=persona.getPagoxCarga() %></td>
                         <td><%=persona.getVales() %></td>
                         <td><%=persona.getReten() %></td>
                         
@@ -166,11 +168,11 @@
    <div class="content content3"> <div  class="container p-3 my-3 bg-primary text-white">
         <form  action="Captura"  class="form-group">
         
-			   <label for="usr">Name:</label>
+			   <label for="usr">Horas Extras</label>
 
       <div class="input-group-prepend">
     <div class="input-group-text">
-            <input   type="text" name="txtName"  />
+            <input   type="text" name="txtHR"  />
         
    </div>   
     </div>
@@ -193,18 +195,15 @@
 	  <div  class="form-group form-check">
 	<div class="form-check">
   <label class="form-check-label">
-    <input type="checkbox" class="form-check-input"  name="txtRol" value="Chofer">Chofer
-  </label>
+    <input type="checkbox" class="form-check-input"  name="txtRol" value="3">Chofer</label>
 </div>
 <div class="form-check">
   <label class="form-check-label">
-    <input type="checkbox" class="form-check-input"  name="txtRol" value="Cargador">Cargador
-  </label>
+    <input type="checkbox" class="form-check-input"  name="txtRol" value="2">Cargador </label>
 </div>
 <div class="form-check">
   <label class="form-check-label">
-    <input type="checkbox" class="form-check-input"  name="txtRol" value="Auxiliar" >Auxiliar
-  </label>
+    <input type="checkbox" class="form-check-input"  name="txtRol" value="1" >Auxiliar</label>
 </div>
        
  <form action="Captura">
@@ -216,14 +215,14 @@
                 <option name="feb" value="Febrero">Febrero</option>
                 <option name="mar" value="Marzo">Marzo</option>
                 <option name="abr" value="Abril">Abril</option>
-                <option name="ene" value="Enero">Mayo</option>
-                <option name="feb" value="Febrero">Junio</option>
-                <option name="mar" value="Marzo">Julio</option>
-                <option name="abr" value="Abril">Agosto</option>
-                <option name="ene" value="Enero">Septiembre</option>
-                <option name="feb" value="Febrero">Octubre</option>
-                <option name="mar" value="Marzo">Noviembre</option>
-                <option name="abr" value="Abril">Diciembre</option>
+                <option name="ene" value="Mayo">Mayo</option>
+                <option name="feb" value="Junio">Junio</option>
+                <option name="mar" value="Julio">Julio</option>
+                <option name="abr" value="Agosto">Agosto</option>
+                <option name="ene" value="Septiembre">Septiembre</option>
+                <option name="feb" value="Octubre">Octubre</option>
+                <option name="mar" value="Noviembre">Noviembre</option>
+                <option name="abr" value="Diciembre">Diciembre</option>
       </select>
       </select>
 </div>

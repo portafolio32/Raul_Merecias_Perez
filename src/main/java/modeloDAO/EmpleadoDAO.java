@@ -1,5 +1,6 @@
 package modeloDAO;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class EmpleadoDAO implements Acciones{
 @Override  
 	    public List<Empleado> listar() {
 	        ArrayList<Empleado>list=new ArrayList<>();
-	        String sql="select * from rinku_it.empleados";
+	        String sql="{CALL allEmpleados()}";
 	        try{
 	            dataBase=con.getConnection();
 	            query=dataBase.prepareStatement(sql);
@@ -29,6 +30,8 @@ public class EmpleadoDAO implements Acciones{
 	            while(hecho.next()){
 	                Empleado personas=new Empleado();
 	                
+	                personas.setHoras(hecho.getInt("HORAS"));
+	                personas.setPagoxCarga(hecho.getInt("PAGOXENTREGA"));
 	                personas.setMes(hecho.getString("MES"));
 	                personas.setId(hecho.getInt("ID"));
 	                personas.setHoras(hecho.getInt("HORAS"));
@@ -38,6 +41,8 @@ public class EmpleadoDAO implements Acciones{
 	                personas.setIdEmpleado(hecho.getString("idEMPLEADOS"));
 	                personas.setNombre(hecho.getString("NOMBRE"));
 	                personas.setRol(hecho.getString("PUESTO"));
+	                personas.setReten(hecho.getFloat("RETEN"));
+	                personas.setVales(hecho.getFloat("VALES"));
 	                list.add(personas);
 	            }
 	            }catch(Exception e){
@@ -55,14 +60,16 @@ public Empleado lista(int id) {
 @Override
 public boolean add(Empleado persona) {
 	
-
-    String sql="INSERT INTO rinku_it.empleados(idEMPLEADOS,NOMBRE,PUESTO)values('"+persona.getIdEmpleado()+"','"+persona.getNombre()+"','"+persona.getRol()+"')";
-
+	    
 	 try {
         dataBase=con.getConnection();
-        query=dataBase.prepareStatement(sql);
-        query.executeUpdate(sql);
-         
+        query=dataBase.prepareCall("{call nuevoRegistro(?, ?, ?)}");
+	    
+        query.setString(1, persona.getIdEmpleado());
+        query.setString(2, persona.getNombre());
+        query.setString(3, persona.getRol());
+        query.execute();
+        query.close();
 	 }catch(Exception e) {
          System.err.println("error"+e);
 
@@ -72,18 +79,16 @@ public boolean add(Empleado persona) {
 @Override
 public boolean editar(Empleado persona) {
 	// TODO Auto-generated method stub
-	Double sueldo=5760.00;
-	int   carga=persona.getEntregas();
-	float bonoA=carga*10;
-	float bonoB=carga*5;
-	Double sueldoT=bonoA+sueldo;
-	Double ISR=00.09;
-	 String sql="UPDATE rinku_it.empleados SET MES='"+persona.getMes()+"',SUELDO='"+sueldo+"',HORAS='"+192+"',ENTREGAS='"+persona.getEntregas()+"',BONOS='"+bonoA+"' WHERE ID="+persona.getId();
-
 	 try {
         dataBase=con.getConnection();
-        query=dataBase.prepareStatement(sql);
-        query.executeUpdate(sql);
+        query=dataBase.prepareCall("{call capturaNomina(?, ?, ?, ?, ?)}");
+        query.setString(1, persona.getMes());
+        query.setInt(2, persona.getEntregas());
+        query.setInt(3, persona.getId());
+        query.setString(4, persona.getRol());
+        query.setInt(5, persona.getHrExtra());
+        query.execute();
+        query.close();
          
 	 }catch(Exception e) {
          System.err.println("error"+e);

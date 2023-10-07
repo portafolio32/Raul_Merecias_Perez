@@ -44,6 +44,7 @@ public class Controlador extends HttpServlet {
 		// TODO Auto-generated method stub
 		String acceso="";
 		acceso=add;
+		
 	String rol=request.getParameter("txtRol");
 
 	String usr=request.getParameter("txtName");
