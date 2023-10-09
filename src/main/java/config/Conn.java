@@ -5,6 +5,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * @author Raul Merecias Perez
+ *  Fecha 06/10/2022
+ * @version 1.0
+ * 
+ * Clase encargada de Crear la conexion a la base de datos
+ */
+
 public class Conn {
 	
     private Connection conn;

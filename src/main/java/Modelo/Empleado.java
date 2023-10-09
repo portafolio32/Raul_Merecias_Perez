@@ -1,5 +1,11 @@
 package Modelo;
-
+/**
+ * @author Raul Merecias Perez
+ *  Fecha 06/10/2022
+ * @version 1.0
+ * 
+ * Clase Modelo con las propiedades y metodos necesarios para crear el objeto Empleado para obtener los datos para las operaciones. 
+ */
 public class Empleado {
 	int id;
 	int hrExtra;

@@ -13,7 +13,11 @@ import Modelo.Empleado;
 import modeloDAO.EmpleadoDAO;
 
 /**
- * Servlet implementation class Eliminar
+ * @author Raul Merecias Perez
+ *  Fecha 06/10/2022
+ * @version 1.0
+ * 
+ * Controlador encargado de mostrar la vista despues de eliminar un usuario del sistema
  */
 @WebServlet("/Eliminar")
 public class Eliminar extends HttpServlet {

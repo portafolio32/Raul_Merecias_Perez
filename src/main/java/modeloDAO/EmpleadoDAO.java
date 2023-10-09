@@ -12,17 +12,33 @@ import java.util.List;
 import Interface.Acciones;
 import Modelo.Empleado;
 import config.Conn;
-
+/**
+ * 
+ * En esta clase se implementan los metodos para: agregar usuarios, eliminar, actualizar y listar
+ * @author Raul Merecias Perez
+ *  @version 1.0
+ * 
+ **/
 public class EmpleadoDAO implements Acciones{
+	/**
+	 * Instancias publicas que permiten crear la conexion a la base de datos.
+	 * 
+	 */
 	Conn con= new Conn();
 	Connection dataBase;
 	PreparedStatement query;
 	ResultSet hecho;
 	Empleado persona=new Empleado();
+	/**
+	 * Metodo que devuelve una lista de objetos Empleados
+	 */
 @Override  
 	    public List<Empleado> listar() {
-	        ArrayList<Empleado>list=new ArrayList<>();
+	
+	  ArrayList<Empleado>list=new ArrayList<>();
 	        String sql="{CALL allEmpleados()}";
+	    	// TODO Auto-generated method stub
+
 	        try{
 	            dataBase=con.getConnection();
 	            query=dataBase.prepareStatement(sql);
@@ -51,16 +67,15 @@ public class EmpleadoDAO implements Acciones{
 	        
 	                return list;
 	    }
+/**
+ *Metodos que agrega un Empleado a la base de datos mediante un procesamiento almacenado 
+ */
 @Override
-public Empleado lista(int id) {
-	// TODO Auto-generated method stub
-	
-	return null;
-}
-@Override
+
 public boolean add(Empleado persona) {
-	
-	    
+
+	// TODO Auto-generated method stub
+
 	 try {
         dataBase=con.getConnection();
         query=dataBase.prepareCall("{call nuevoRegistro(?, ?, ?)}");
@@ -76,8 +91,14 @@ public boolean add(Empleado persona) {
 	 }
 	return false;
 }
+
+/**
+ * Metodos para capturar horas por mes, entregas, horas extras y Rol mediante el ID utilizando un procesamiento almacenado
+ */
 @Override
+
 public boolean editar(Empleado persona) {
+	
 	// TODO Auto-generated method stub
 	 try {
         dataBase=con.getConnection();
@@ -96,8 +117,16 @@ public boolean editar(Empleado persona) {
 	 }
 	return false;
 }
+
+
+/**
+ * Metodo para eliminar un empleado del sistema mediante el numero de empleado.
+ */
 @Override
+
+
 public boolean borrar(int id) {
+
 	// TODO Auto-generated method stub
 	String sql="DELETE from rinku_it.empleados where ID="+id;
 	try {

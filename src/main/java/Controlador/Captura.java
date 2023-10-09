@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import Modelo.Empleado;
 import modeloDAO.EmpleadoDAO;
-
 /**
- * Servlet implementation class Captura
+ * @author Raul Merecias Perez
+ *  Fecha 06/10/2022
+ * @version 1.0
+ * 
+ * Controlador encargado de capturar los datos de la vista  por Mes de las horas trabajadas
  */
+
 @WebServlet("/Captura")
 public class Captura extends HttpServlet {
 	private static final long serialVersionUID = 1L;

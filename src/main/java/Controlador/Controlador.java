@@ -19,7 +19,11 @@ import config.Conn;
 import modeloDAO.EmpleadoDAO;
 
 /**
- * Servlet implementation class Controlador
+ * @author Raul Merecias Perez
+ *  Fecha 06/10/2022
+ * @version 1.0
+ * 
+ * Controlador encargado de capturar los datos de la vista para crear un Nuevo Usuario
  */
 
 @WebServlet(description = "Logica de negocio", urlPatterns = { "/Controlador" })
